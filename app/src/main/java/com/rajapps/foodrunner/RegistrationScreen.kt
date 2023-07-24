@@ -18,6 +18,7 @@ class RegistrationScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_registration_screen)
         btnRegister=findViewById(R.id.btnRegister)
         etName=findViewById(R.id.etName)
@@ -38,7 +39,7 @@ class RegistrationScreen : AppCompatActivity() {
                 intent.putExtra("txtConfPassword","${etConfPassword.text.toString()}")
                 startActivity(intent)
             }else{
-                Toast.makeText(this,"Please enter valid credentials", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Invalid credentials", Toast.LENGTH_SHORT).show()
             }
         }
     }

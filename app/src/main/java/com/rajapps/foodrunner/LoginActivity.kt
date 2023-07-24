@@ -7,9 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.rajapps.foodrunner.R
 
-class LoginScreen : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     lateinit var etMobileNumber: EditText
     lateinit var etPassword: EditText
     lateinit var btnLogin: Button
@@ -18,7 +17,7 @@ class LoginScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_screen)
+        setContentView(R.layout.activity_login)
 
         btnLogin=findViewById(R.id.btnLogin)
         etMobileNumber=findViewById(R.id.etMobileNumber)
@@ -27,7 +26,7 @@ class LoginScreen : AppCompatActivity() {
         txtSignup=findViewById(R.id.txtSignup)
         btnLogin.setOnClickListener{
 
-            var intent= Intent(this@LoginScreen,AfterLoginScreen::class.java)
+            var intent= Intent(this@LoginActivity,AfterLoginScreen::class.java)
             val mobileNumber:String=etMobileNumber.text.toString()
             val password:String=etPassword.text.toString()
             if(mobileNumber.length==10&&password.length>=4){
@@ -35,15 +34,15 @@ class LoginScreen : AppCompatActivity() {
                 intent.putExtra("password","Password:$password")
                 startActivity(intent)
             }else{
-                Toast.makeText(this@LoginScreen,"Please enter valid credentials",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity,"Please enter valid credentials",Toast.LENGTH_SHORT).show()
             }
         }
         txtForgotPassword.setOnClickListener{
-            var intent= Intent(this@LoginScreen,ForgotPasswordPage::class.java)
+            var intent= Intent(this@LoginActivity,ForgotPasswordPage::class.java)
             startActivity(intent)
         }
         txtSignup.setOnClickListener{
-            var intent= Intent(this@LoginScreen,RegistrationScreen::class.java)
+            var intent= Intent(this@LoginActivity,RegistrationScreen::class.java)
             startActivity(intent)
         }
     }

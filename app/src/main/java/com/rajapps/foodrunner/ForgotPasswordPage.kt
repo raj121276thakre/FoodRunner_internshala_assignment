@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 
 class ForgotPasswordPage : AppCompatActivity() {
+
     lateinit var etMobileNumber:EditText
     lateinit var etEmail:EditText
     lateinit var btnNext:Button
@@ -18,6 +19,7 @@ class ForgotPasswordPage : AppCompatActivity() {
         etMobileNumber=findViewById(R.id.etMobileNumber)
         etEmail=findViewById(R.id.etEmailId)
         btnNext=findViewById(R.id.btnNext)
+
         btnNext.setOnClickListener{
             if(etMobileNumber.text.length==10){
                 intent= Intent(this@ForgotPasswordPage,AfterRegistrationAndForgotPasswordScreen::class.java)
@@ -25,7 +27,7 @@ class ForgotPasswordPage : AppCompatActivity() {
                 intent.putExtra("txtMobileNumber","${etMobileNumber.text.toString()}")
                 startActivity(intent)
             }else{
-                Toast.makeText(this,"Please enter valid credentials", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Invalid credentials", Toast.LENGTH_SHORT).show()
             }
 
         }
